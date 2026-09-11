@@ -10,6 +10,8 @@ import {
 } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import { Link } from "@tanstack/react-router";
+import ProductTags from "./ProductTags";
 
 type Props = {
   item: Product;
@@ -30,17 +32,18 @@ export default function Product({ item }: Props) {
         </CardTitle>
       </CardHeader>
       <CardDescription className="flex flex-row gap-0.5 py-0 justify-center">
-        <CardAction>
-          {item.tags.map((tag) => (
-            <Badge className="m-0.5" key={tag}>
-              {tag}
-            </Badge>
-          ))}
-        </CardAction>
+        <ProductTags tags={item.tags} />
       </CardDescription>
       <CardDescription className="p-0 m-0">${item.price}</CardDescription>
       <CardFooter className="grid grid-cols-4">
-        <Button className="w-full col-span-3">Detail</Button>
+        <Link
+          className="col-span-3"
+          to="/products/{$productId}"
+          params={{ productId: item.id }}
+        >
+          <Button className="w-full">Detail</Button>
+        </Link>
+
         <Button className="w-full col-span-1">
           <ShoppingCart />
         </Button>
