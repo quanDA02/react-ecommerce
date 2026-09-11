@@ -1,5 +1,11 @@
+import ProductList from "./components/product/ProductList";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <ProductList />
+    </>
+  );
 }
 
 export default App;
