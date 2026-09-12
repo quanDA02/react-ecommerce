@@ -32,7 +32,7 @@ export default function ProductBuyPanel({ item }: Props) {
   function addToCart() {
     toast.add({
       title: "Added to cart",
-      description: `${quantity}`,
+      description: `Quantity: ${quantity}`,
     });
   }
   return (
