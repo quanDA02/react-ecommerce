@@ -8,16 +8,30 @@ type CartItem = {
 
 type CartStore = {
   items: CartItem[];
+  itemCount: () => number;
   addItem: (product: Product, buyQuantity: number) => void;
   removeItem: (productId: number) => void;
   clearCart: () => void;
 };
 
-export const useCartStore = create<CartStore>((set) => ({
+export const useCartStore = create<CartStore>((set, get) => ({
   items: [],
+  itemCount: () => get().items.length,
   addItem: (product, buyQuantity) =>
     set((state) => {
       const exist = state.items.find((item) => item.product.id === product.id);
+      if (exist) {
+        return {
+          items: state.items.map((item) =>
+            item.product.id === product.id
+              ? { ...item, quantity: item.quantity + buyQuantity }
+              : item,
+          ),
+        };
+      }
+      return {
+        items: [...state.items, { product, quantity: buyQuantity }],
+      };
     }),
   removeItem: (productId) =>
     set((state) => ({
