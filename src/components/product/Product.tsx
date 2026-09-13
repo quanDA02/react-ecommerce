@@ -2,22 +2,25 @@ import type { Product } from "@/schemas/productSchema";
 import { ShoppingCart } from "lucide-react";
 import {
   Card,
-  CardAction,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Link } from "@tanstack/react-router";
 import ProductTags from "./ProductTags";
+import { useCartStore } from "@/data/cart";
 
 type Props = {
   item: Product;
 };
 
 export default function Product({ item }: Props) {
+  const addItem = useCartStore((state) => state.addItem);
+  function cartHandler() {
+    addItem(item, 1);
+  }
   return (
     <Card className="group relative mx-auto w-full max-w-sm pt-0 hover:drop-shadow-2xl">
       <div className="absolute inset-0 z-30 aspect-square bg-black/5" />
@@ -44,7 +47,7 @@ export default function Product({ item }: Props) {
           <Button className="w-full">Detail</Button>
         </Link>
 
-        <Button className="w-full col-span-1">
+        <Button onClick={cartHandler} className="w-full col-span-1">
           <ShoppingCart />
         </Button>
       </CardFooter>

@@ -1,7 +1,7 @@
 import { navData } from "@/data/navigations";
 import { NavigationMenu, NavigationMenuList } from "../ui/navigation-menu";
 import NavLink from "./NavLink";
-import Cart from "./Cart";
+import CartNavbar from "./CartNavbar";
 
 type Props = {};
 
@@ -14,7 +14,7 @@ export default function Navbar({}: Props) {
           {navs.map((nav) => (
             <NavLink key={nav.title} nav={nav} />
           ))}
-          <Cart />
+          <CartNavbar />
         </NavigationMenuList>
       </NavigationMenu>
     </div>

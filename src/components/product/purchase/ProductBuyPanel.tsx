@@ -8,12 +8,14 @@ import ProductPrice from "./ProductPrice";
 import { CardFooter } from "@/components/ui/card";
 import PurchaseButton from "./PurchaseButton";
 import { toast } from "@/components/ui/toast";
+import { useCartStore } from "@/data/cart";
 
 type Props = {
   item: Product;
 };
 
 export default function ProductBuyPanel({ item }: Props) {
+  const addItem = useCartStore((state) => state.addItem);
   const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     if (quantity < 1) {
@@ -34,6 +36,7 @@ export default function ProductBuyPanel({ item }: Props) {
       title: "Added to cart",
       description: `Quantity: ${quantity}`,
     });
+    addItem(item, quantity);
   }
   return (
     <>
