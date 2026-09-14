@@ -1,5 +1,5 @@
 import type { Product } from "@/schemas/productSchema";
-import { CardAction, CardContent } from "../ui/card";
+import { CardAction, CardContent, CardTitle } from "../ui/card";
 import { Button } from "../ui/button";
 import { useCartStore } from "@/data/cart";
 import { Trash } from "lucide-react";
@@ -26,14 +26,12 @@ export default function CartItem({ item, quantity }: Props) {
   }
   return (
     <div className="grid grid-cols-3 items-center border border-primary/50">
-      <img
-        src={item.thumbnail}
-        className="col-span-1 bg-gray-200"
-        alt={item.title}
-      />
-      <CardContent className="font-bold col-span-1">
-        {item.title}
-        <CardAction className="justify-center font-semibold w-full">
+      <div className="col-span-1 flex flex-row">
+        <img src={item.thumbnail} className="bg-gray-200" alt={item.title} />
+      </div>
+      <CardContent className={`font-bold col-span-1 p-2`}>
+        <CardTitle className="text-center">{item.title}</CardTitle>
+        <CardAction className="justify-center font-semibold w-full order-1">
           <PurchaseQuantity
             asc={increaseHandler}
             desc={decreaseHandler}
@@ -41,7 +39,7 @@ export default function CartItem({ item, quantity }: Props) {
           />
         </CardAction>
       </CardContent>
-      <CardContent className="col-span-1 grid-rows-3 justify-center items-center">
+      <CardContent className="col-span-1 justify-center items-center">
         <CardAction className="justify-center font-semibold w-full">
           Price / unit: ${item.price}
         </CardAction>
