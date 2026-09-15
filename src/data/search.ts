@@ -9,7 +9,7 @@ type searchStore = {
 };
 
 export const useSearchStore = create<searchStore>((set) => ({
-  query: { search: "", category: "", sort: "asc" },
+  query: { search: "", category: "none", sort: "asc" },
   setSearch: (search) =>
     set((state) => ({
       query: {

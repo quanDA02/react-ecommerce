@@ -10,7 +10,7 @@ export async function getProducts(searchParams: ProductSearch) {
   const data = await res.json();
   const response = responseSchema.parse(data);
   const products = response.products;
-  return products;
+  return filter(products, category ?? "");
 }
 
 export async function getProductDetails(productId: string): Promise<Product> {
@@ -27,4 +27,14 @@ export async function getRelatedProduct(category: string) {
   const response = responseSchema.parse(data);
   const products = response.products;
   return products;
+}
+
+function filter(products: Product[], category: string) {
+  if (category === "none" || category === "") {
+    return products;
+  }
+  const filteredProducts = products.filter((product) => {
+    return product.tags.includes(category);
+  });
+  return filteredProducts;
 }
