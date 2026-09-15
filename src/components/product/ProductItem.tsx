@@ -16,7 +16,7 @@ type Props = {
   item: Product;
 };
 
-export default function Product({ item }: Props) {
+export default function ProductItem({ item }: Props) {
   const addItem = useCartStore((state) => state.addItem);
   function cartHandler() {
     addItem(item, 1);

@@ -5,7 +5,9 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 const RootLayout = () => (
   <>
     <Navbar />
-    <Outlet />
+    <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <Outlet />
+    </main>
     <TanStackRouterDevtools />
     <Toaster timeout={2500} />
   </>
