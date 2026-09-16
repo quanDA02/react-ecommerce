@@ -1,3 +1,4 @@
+import Paging from "@/components/pagination/Paging";
 import ProductFilter from "@/components/product/filter/ProductFilter";
 import ProductList from "@/components/product/ProductList";
 import { getProducts } from "@/data/api";
@@ -36,6 +37,7 @@ function RouteComponent() {
           className="grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 col-span-1"
         />
       )}
+      <Paging />
     </div>
   );
 }
