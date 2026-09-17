@@ -5,8 +5,10 @@ export const searchSchema = z.object({
   sort: z.enum(["asc", "desc"]).default("asc"),
 });
 
-export const tagSchema = z.object({
+export const urlSchema = z.object({
   category: z.string().default(""),
+  page: z.number().default(1),
+  limit: z.number().default(20),
 });
-export type tagSearch = z.infer<typeof tagSchema>;
+export type urlSearch = z.infer<typeof urlSchema>;
 export type ProductSearch = z.infer<typeof searchSchema>;

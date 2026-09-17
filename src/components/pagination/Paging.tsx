@@ -1,38 +1,41 @@
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
-  PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-type Props = {};
+import PageButton from "./PageButton";
+import { pageArray } from "@/utils/pageUtils";
+type Props = {
+  currentPage: number;
+  pageHandler: (page: number) => void;
+  totalPage: number;
+};
 
-export default function Paging({}: Props) {
+export default function Paging({ currentPage, pageHandler, totalPage }: Props) {
+  const pages = pageArray(totalPage, currentPage);
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#" isActive>
-            2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
+        {currentPage > 3 && (
+          <PaginationItem>
+            <PaginationPrevious onClick={() => pageHandler(currentPage - 1)} />
+          </PaginationItem>
+        )}
+        {pages.map((page, index) => (
+          <PageButton
+            key={index}
+            currentPage={currentPage}
+            page={page}
+            pageHandler={pageHandler}
+          />
+        ))}
+        {currentPage < totalPage - 2 && (
+          <PaginationItem>
+            <PaginationNext onClick={() => pageHandler(currentPage + 1)} />
+          </PaginationItem>
+        )}
       </PaginationContent>
     </Pagination>
   );

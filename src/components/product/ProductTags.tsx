@@ -14,7 +14,11 @@ export default function ProductTags({ tags }: Props) {
         <Link
           key={tag}
           to="/products"
-          search={(prev: ProductSearch) => ({ ...prev, category: tag })}
+          search={(prev: ProductSearch) => ({
+            ...prev,
+            category: tag,
+            page: 1,
+          })}
         >
           <Badge className="m-0.5">{tag}</Badge>
         </Link>

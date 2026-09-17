@@ -4,13 +4,15 @@ import type { ProductSearch } from "@/schemas/searchSchema";
 
 export async function getProducts(searchParams: ProductSearch) {
   const { search, category, sort } = searchParams;
+
   const res = await fetch(
-    `https://dummyjson.com/products/search?limit=20&q=${search}&sortBy=title&order=${sort}`,
+    `https://dummyjson.com/products/search?limit=0&q=${search}&sortBy=title&order=${sort}`,
   );
   const data = await res.json();
   const response = responseSchema.parse(data);
-  const products = response.products;
-  return filter(products, category ?? "");
+  response.products = filter(response.products, category ?? "");
+  response.total = response.products.length;
+  return response;
 }
 
 export async function getProductDetails(productId: string): Promise<Product> {
