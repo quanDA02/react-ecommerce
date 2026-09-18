@@ -27,5 +27,3 @@ export function pageArray(totalPage: number, currentPage: number): number[] {
 
   return pageArr;
 }
-
-type Page = number | string;

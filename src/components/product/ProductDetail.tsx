@@ -1,12 +1,6 @@
 import type { Product } from "@/schemas/productSchema";
 import StarRating from "../rating/StarRating";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import ProductImages from "./ProductImages";
 import ProductTags from "./ProductTags";
 import ProductBuyPanel from "./purchase/ProductBuyPanel";

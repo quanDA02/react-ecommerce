@@ -2,7 +2,6 @@ import { useCartStore } from "@/data/cart";
 import {
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,

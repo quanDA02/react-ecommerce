@@ -1,5 +1,5 @@
 import { useCartStore } from "@/data/cart";
-import { Card, CardContent, CardTitle } from "../ui/card";
+import { CardContent, CardTitle } from "../ui/card";
 import CartItem from "./CartItem";
 import CheckoutPanel from "./CheckoutPanel";
 import { Button } from "../ui/button";

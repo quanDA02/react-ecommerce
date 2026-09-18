@@ -1,0 +1,37 @@
+name: build and deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  pages: write      
+  id-token: write   
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out 
+        uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: install dependencies
+        run: npm ci
+      - name: build
+        run: npm run build 
+      - name: upload artifacts
+        run: actions/upload-pages-artifact@v4
+        with:  
+          name: 'pages'
+          path: dist
+      - name: deploy
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifacts_name: 'pages'
+      

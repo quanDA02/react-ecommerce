@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useSearchStore } from "@/data/search";
-import { ArrowDown, ArrowUp, Badge } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 import { useState } from "react";
 
 type Props = {
