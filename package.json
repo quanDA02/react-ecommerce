@@ -2,7 +2,7 @@
   "name": "react-ecommerce",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://quanDA02.github.io/react-ecommerce/",
+  "homepage": "https://quanda02.github.io/react-ecommerce/",
   "type": "module",
   "scripts": {
     "dev": "vite",
