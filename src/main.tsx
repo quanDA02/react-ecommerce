@@ -9,7 +9,7 @@ import "./index.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // Create a new router instance
-const router = createRouter({ routeTree });
+const router = createRouter({ routeTree, basepath: "/react-ecommerce" });
 
 const client = new QueryClient();
 
