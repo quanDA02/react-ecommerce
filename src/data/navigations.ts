@@ -12,4 +12,8 @@ export const navData: Navigation[] = [
     title: "Products",
     navLink: "products",
   },
+  {
+    title: "About",
+    navLink: "about",
+  },
 ];
