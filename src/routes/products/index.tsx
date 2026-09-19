@@ -37,27 +37,22 @@ function RouteComponent() {
   return (
     <div className="grid grid-cols-1 p-2">
       <ProductFilter className="col-span-1" />
-      {isLoading ? (
-        <div>Loading</div>
-      ) : (
-        <>
-          {data && (
-            <div>
-              Showing {page * limit > data.total ? data.total : page * limit} of{" "}
-              {data?.total}
-            </div>
-          )}
-          <ProductList
-            data={
-              data?.products.slice(
-                (page - 1) * limit,
-                (page - 1) * limit + limit,
-              ) ?? []
-            }
-            className="grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 col-span-1"
-          />
-        </>
+      {data && (
+        <div>
+          Showing {page * limit > data.total ? data.total : page * limit} of{" "}
+          {data?.total}
+        </div>
       )}
+      <ProductList
+        data={
+          data?.products.slice(
+            (page - 1) * limit,
+            (page - 1) * limit + limit,
+          ) ?? []
+        }
+        isLoading={isLoading}
+        className="grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 col-span-1"
+      />
       <Paging
         currentPage={page}
         pageHandler={pageHandler}
