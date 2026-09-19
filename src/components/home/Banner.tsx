@@ -1,10 +1,11 @@
 import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { Card } from "../ui/card";
 type Props = {};
 
 export default function Banner({}: Props) {
   return (
-    <Carousel className="w-full" opts={{ loop: true }}>
+    <Carousel className="w-full" opts={{ loop: true }} plugins={[Autoplay()]}>
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
