@@ -13,7 +13,7 @@ export default function PurchaseQuantity({ asc, desc, quantity }: Props) {
       <Button onClick={desc} className="col-span-1">
         <Minus />
       </Button>
-      <div className="col-span-3">{quantity}</div>
+      <p className="col-span-3 text-black">{quantity}</p>
       <Button onClick={asc} className="col-span-1">
         <Plus />
       </Button>

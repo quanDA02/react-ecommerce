@@ -18,6 +18,8 @@ export default function CartDrawer({}: Props) {
     <DrawerContent className="w-[40vh]">
       <DrawerHeader>
         <DrawerTitle className="text-2xl">Cart items</DrawerTitle>
+      </DrawerHeader>
+      <div className="p-4">
         {cartItems.map((item) => (
           <CartItem
             key={item.product.id}
@@ -25,8 +27,7 @@ export default function CartDrawer({}: Props) {
             quantity={item.quantity}
           />
         ))}
-      </DrawerHeader>
-      <div className="p-4">{/* Content here */}</div>
+      </div>
       <DrawerFooter>
         <DrawerClose
           render={

@@ -8,7 +8,7 @@ type Props = {
 
 export default function NavLink({ nav }: Props) {
   return (
-    <NavigationMenuItem>
+    <NavigationMenuItem className="hidden md:flex">
       <NavigationMenuLink
         className="transform duration-300"
         render={

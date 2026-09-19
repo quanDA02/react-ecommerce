@@ -17,7 +17,7 @@ export default function Cart({}: Props) {
   return (
     <div>
       {cartItems.length > 0 ? (
-        <div className="grid grid-cols-3 p-4 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 p-4 gap-2">
           <div className="col-span-2 flex flex-col justify-between">
             <CardTitle className="text-2xl font-semibold">Cart Items</CardTitle>
             <CardContent>

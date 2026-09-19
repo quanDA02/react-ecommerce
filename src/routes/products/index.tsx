@@ -26,10 +26,6 @@ function RouteComponent() {
   useEffect(() => {
     setCategory(category);
   }, [category]);
-  // useEffect(() => {
-  //   setPage(params.page);
-  // }, [params.page]);
-
   const pageHandler = (newPage: number) => {
     navigate({ search: (prev: urlSearch) => ({ ...prev, page: newPage }) });
   };
