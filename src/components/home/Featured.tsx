@@ -7,9 +7,10 @@ import type { Product } from "@/schemas/productSchema";
 
 type Props = {
   data: Product[];
+  isLoading: boolean;
 };
 
-export default function Featured({ data }: Props) {
+export default function Featured({ data, isLoading }: Props) {
   return (
     <Card>
       <CardHeader>
@@ -25,6 +26,7 @@ export default function Featured({ data }: Props) {
       <ProductList
         className="grid grid-cols-2 md:grid-cols-4"
         data={data ?? []}
+        isLoading={isLoading}
       />
     </Card>
   );

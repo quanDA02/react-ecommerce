@@ -13,7 +13,7 @@ export default function Home({}: Props) {
   return (
     <div className="flex flex-col justify-center items-center">
       <Banner />
-      <Featured data={data ?? []} />
+      <Featured isLoading={isLoading} data={data ?? []} />
     </div>
   );
 }
