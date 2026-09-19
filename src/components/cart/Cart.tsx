@@ -4,6 +4,7 @@ import CartItem from "./CartItem";
 import CheckoutPanel from "./CheckoutPanel";
 import { Button } from "../ui/button";
 import { Trash } from "lucide-react";
+import Payment from "./Payment";
 
 type Props = {};
 
@@ -36,9 +37,9 @@ export default function Cart({}: Props) {
               <Trash /> Clear all
             </Button>
           </div>
-          <div className="col-span-1 items-center">
+          <div className="col-span-1 flex flex-col gap-2">
             <CheckoutPanel />
-            <Button className="w-full mt-2">Checkout</Button>
+            <Payment />
           </div>
         </div>
       ) : (
