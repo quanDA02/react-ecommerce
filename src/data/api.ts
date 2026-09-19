@@ -40,3 +40,10 @@ function filter(products: Product[], category: string) {
   });
   return filteredProducts;
 }
+
+export async function getFeatureProduct() {
+  const res = await fetch("https://dummyjson.com/products?limit=4");
+  const data = await res.json();
+  const response = responseSchema.parse(data);
+  return response.products;
+}
